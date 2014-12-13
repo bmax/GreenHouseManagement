@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GHM</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title><%= yield(:title) %></title>
 
-<%= yield %>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-</body>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+          <div class='messages' style='display: <%= flash.any? ? "block" : "none" %>'>
+              <% flash.each do |alert, msg| %>
+                <div class='<%= alert %>'><%= msg %></div>
+              <% end %>
+            </div>
+            <div class="inner">
+              <h3 class="masthead-brand">GreenHouse<span style='font-size:2em;'>M</span></h3>
+              <nav>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <% if current_user %>
+                  <li><a href="logout">Logout</a></li>
+                <% else %>
+                  <li><a href="login">Login</a></li>
+                <% end %>
+              </ul>
+              </nav>
+            </div>
+            <div class='clearfix'></div>
+            <h1 class="cover-heading"><%= yield(:title) %></h1>
+          </div>
+
+          <div class="inner cover">
+            <%= yield %>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </body>
 </html>

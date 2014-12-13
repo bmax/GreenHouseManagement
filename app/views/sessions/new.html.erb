@@ -1,15 +1,14 @@
-<% if flash %>
-  <%= flash.alert %>
-<% end %>
-Login Form:
-<%= form_tag sessions_path do %>
-<div>
-  <%= label_tag :email %>
-  <%= text_field_tag :email, params[:email] %>
+<% content_for :title, "Login" %>
+<div id="login_new">
+  <%= form_tag sessions_path do %>
+    <div class='form-group'>
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Enter Email" %>
+    </div>
+    <div class='form-group'> 
+      <%= label_tag :password %>
+      <%= text_field_tag :password, params[:password], class: "form-control", placeholder: "Enter Password" %>
+    </div>
+    <div><%= button_tag "Login", type: "submit", class: "btn btn-default" %></div>
+  <% end %>
 </div>
-<div> 
-  <%= label_tag :password %>
-  <%= text_field_tag :password %>
-</div>
-<div> <%= submit_tag "Login" %></div>
-<% end %>
