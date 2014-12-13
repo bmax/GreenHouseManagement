@@ -1,0 +1,25 @@
+Sign up form:
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <h2>Form Errors</h2>
+    <% @user.errors.full_message.each do |error| %>
+      <p> <%=error%></p>
+    <% end %>
+  <% end %>
+  <div>
+    <%=f.label :email %>
+    <%=f.text_field :email %>
+  </div>
+
+  <div>
+    <%=f.label :password %>
+    <%=f.password_field :password %>
+  </div>
+
+  <div>
+    <%=f.label :password_confirmation %>
+    <%=f.password_field :password_confirmation %>
+  </div>
+
+  <div> <%= f.submit%></div>
+<% end%>

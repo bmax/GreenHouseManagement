@@ -1,0 +1,15 @@
+<% if flash %>
+  <%= flash.alert %>
+<% end %>
+Login Form:
+<%= form_tag sessions_path do %>
+<div>
+  <%= label_tag :email %>
+  <%= text_field_tag :email, params[:email] %>
+</div>
+<div> 
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+</div>
+<div> <%= submit_tag "Login" %></div>
+<% end %>
