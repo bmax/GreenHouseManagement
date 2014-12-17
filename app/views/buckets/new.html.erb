@@ -1,0 +1,14 @@
+<% content_for :title, "New Bucket" %>
+<%= form_for @b do |f| %>
+  <div class='form-group'>
+    <%= f.label :bucket_type %>
+    <%= select_tag(:bucket_type, options_for_select([["Three Gallon",0] ,["Seven Gallon",1], ["Drying Rack",2]]), prompt: "Select Something", class: "form-control")%>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Enter Name of Bucket" %> 
+  </div>
+  <div><%= button_tag "Create Bucket", type: "submit", class: "btn btn-default" %></div>
+
+<% end %>

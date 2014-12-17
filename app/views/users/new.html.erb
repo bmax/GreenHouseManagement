@@ -1,25 +1,25 @@
-Sign up form:
+<% content_for :title, "Register form" %>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <h2>Form Errors</h2>
-    <% @user.errors.full_message.each do |error| %>
-      <p> <%=error%></p>
-    <% end %>
+    <% @user.errors.messages.each do |error, msg| %>
+      <%= error %> - <%= msg %>
+      <%end%>
   <% end %>
-  <div>
+  <div class='form-group'>
     <%=f.label :email %>
-    <%=f.text_field :email %>
+    <%=f.text_field :email, class: "form-control", placeholder: "Enter Email/Username"  %>
   </div>
 
-  <div>
+  <div class='form-group'>
     <%=f.label :password %>
-    <%=f.password_field :password %>
+    <%=f.password_field :password, class: "form-control", placeholder: "Enter Password" %>
   </div>
 
-  <div>
+  <div class='form-group'>
     <%=f.label :password_confirmation %>
-    <%=f.password_field :password_confirmation %>
+    <%=f.password_field :password_confirmation, class: "form-control", placeholder: "Enter Password" %>
   </div>
 
-  <div> <%= f.submit%></div>
+    <div><%= button_tag "Register", type: "submit", class: "btn btn-default" %></div>
 <% end%>

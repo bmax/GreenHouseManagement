@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213161027) do
+ActiveRecord::Schema.define(version: 20141216030607) do
+
+  create_table "buckets", force: true do |t|
+    t.integer  "bucket_type", default: 0
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plant_bucket_assignments", force: true do |t|
+    t.integer  "bucket_id"
+    t.integer  "plant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plants", force: true do |t|
+    t.time     "date_started"
+    t.time     "date_finished"
+    t.time     "date_expected_finish"
+    t.text     "description"
+    t.integer  "previous_buckets"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", force: true do |t|
     t.string   "new"

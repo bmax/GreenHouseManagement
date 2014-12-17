@@ -1,0 +1,7 @@
+<% content_for :title, "Bucket list" %>
+<% @b.each do |b| %>
+  <div>
+    <p><%= b.name %> - <%=b.bucket_type %></p>
+  </div>
+<%end%>
+<%=link_to "Add new Bucket", new_bucket_path, class: "btn btn-default" %>

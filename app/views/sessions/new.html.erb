@@ -10,5 +10,6 @@
       <%= text_field_tag :password, params[:password], class: "form-control", placeholder: "Enter Password" %>
     </div>
     <div><%= button_tag "Login", type: "submit", class: "btn btn-default" %></div>
+    <div><%= link_to "Register", new_user_path %>
   <% end %>
 </div>
