@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
  resources :sessions
 resources :buckets
+resources :plants
   
  resources :users
 
