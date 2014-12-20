@@ -2,6 +2,13 @@
 <% @b.each do |b| %>
   <div>
     <p><%= b.name %> - <%=b.bucket_type %></p>
+    <p>Plants inside:</p>
+    <div style="padding-left:140px;">
+      <% b.plants.each do |p| %>
+        ID: <b><%= p.id %> </b><br/>
+        Description: <b><%= p.description %></b>
+      <% end%>
+    </div>
   </div>
 <%end%>
 <%=link_to "Add new Bucket", new_bucket_path, class: "btn btn-default" %>
